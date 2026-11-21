@@ -1,34 +1,34 @@
-// Replace these example entries with real levels after checking their eligibility.
-// lengthSeconds must be less than 30. Rank is the current list position.
+// Replace these example entries with real, checked unrated challenges.
+// Rank 1 is the hardest. lengthSeconds must be less than 30.
 const T30L_LEVELS = [
   {
-    id: "sample-level-1",
+    id: "sample-challenge-1",
     rank: 1,
-    name: "Example Level",
+    name: "Example Challenge",
     creator: "Example Creator",
+    verifier: "Example Verifier",
     lengthSeconds: 24,
-    difficulty: "Extreme Demon",
     levelId: "00000000",
-    description: "Example entry for the initial website layout. Replace this with verified level information."
+    description: "Example entry for the initial website layout. Replace this with verified challenge information."
   },
   {
-    id: "sample-level-2",
+    id: "sample-challenge-2",
     rank: 2,
     name: "Another Example",
     creator: "Another Creator",
+    verifier: "Example Verifier",
     lengthSeconds: 19,
-    difficulty: "Insane Demon",
     levelId: "00000001",
     description: "A second example entry. Its placement and details are placeholders."
   },
   {
-    id: "sample-level-3",
+    id: "sample-challenge-3",
     rank: 3,
     name: "Short Example",
     creator: "Sample Creator",
+    verifier: "Example Verifier",
     lengthSeconds: 28,
-    difficulty: "Hard Demon",
     levelId: "00000002",
-    description: "A third example entry to demonstrate searching, sorting, and level profiles."
+    description: "A third example entry to demonstrate searching, sorting, and challenge profiles."
   }
 ];

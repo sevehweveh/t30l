@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="T30L — a community list of Geometry Dash levels under 30 seconds long.">
+  <meta name="description" content="T30L — a community ranking of unrated Geometry Dash challenges under 30 seconds.">
   <title>T30L — The Under 30 Seconds List</title>
   <link rel="stylesheet" href="styles.css">
   <script src="levels.js" defer></script>
@@ -15,46 +15,43 @@
     <nav><a class="active" href="index.html">List</a><a href="#about">About</a></nav>
     <a class="header-link" href="#list">Explore list <span>↗</span></a>
   </header>
-
   <main>
     <section class="hero">
-      <div class="eyebrow"><span class="status-dot"></span> COMMUNITY LEVEL RANKING</div>
+      <div class="eyebrow"><span class="status-dot"></span> COMMUNITY CHALLENGE RANKING</div>
       <h1>THE UNDER <span>30 SECONDS</span> LIST</h1>
-      <p class="hero-copy">A community-driven ranking of Geometry Dash levels that can be completed in under 30 seconds.</p>
+      <p class="hero-copy">A community-driven difficulty ranking of unrated Geometry Dash challenges that are shorter than 30 seconds.</p>
       <div class="hero-stats">
-        <div><strong id="level-count">0</strong><span>LEVELS</span></div>
+        <div><strong id="level-count">0</strong><span>CHALLENGES</span></div>
         <div><strong>00:30</strong><span>MAX LENGTH</span></div>
-        <div><strong>COMMUNITY</strong><span>MAINTAINED</span></div>
+        <div><strong>HARDEST → EASIEST</strong><span>RANKING ORDER</span></div>
       </div>
     </section>
-
     <section class="list-section" id="list">
       <div class="section-heading">
-        <div><div class="eyebrow">THE RANKINGS</div><h2>Level List</h2></div>
+        <div><div class="eyebrow">THE RANKINGS</div><h2>Challenge List</h2></div>
         <span class="updated">STARTER DATABASE</span>
       </div>
       <div class="toolbar">
-        <label class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Search levels or creators..." autocomplete="off"></label>
-        <select id="sort" aria-label="Sort levels">
-          <option value="rank">List order</option>
+        <label class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Search challenges or creators..." autocomplete="off"></label>
+        <select id="sort" aria-label="Sort challenges">
+          <option value="rank">List order (hardest first)</option>
           <option value="name">Name (A–Z)</option>
           <option value="length">Shortest first</option>
         </select>
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>RANK</th><th>LEVEL</th><th>CREATOR</th><th>LENGTH</th><th>DIFFICULTY</th></tr></thead>
+          <thead><tr><th>RANK</th><th>CHALLENGE</th><th>CREATOR</th><th>LENGTH</th><th>STATUS</th></tr></thead>
           <tbody id="level-table"></tbody>
         </table>
-        <div class="empty-state" id="empty-state" hidden>No levels match your search.</div>
+        <div class="empty-state" id="empty-state" hidden>No challenges match your search.</div>
       </div>
-      <p class="disclaimer">Starter entries are examples, not official placements. Replace them with verified community submissions.</p>
+      <p class="disclaimer">Starter entries are examples, not official placements. Replace them with real, verified challenge information before launch.</p>
     </section>
-
     <section class="about-section" id="about">
       <div class="eyebrow">ABOUT T30L</div>
       <h2>Short doesn't mean easy.</h2>
-      <p>T30L is a community project focused on Geometry Dash levels with a verified completion time below 30 seconds. Placements, eligibility rules, and records will be maintained by the list team.</p>
+      <p>T30L is a community project ranking unrated Geometry Dash challenges that are under 30 seconds long. The list is ordered from hardest to easiest. Challenge eligibility, placements, and player records should be reviewed by the list team.</p>
     </section>
   </main>
   <footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">T</span><span>T30L</span></a><span>Independent community project · Not affiliated with RobTop Games</span></footer>
