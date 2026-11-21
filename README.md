@@ -1,33 +1,37 @@
 # T30L — The Under 30 Seconds List
 
-A static Geometry Dash community list for **unrated challenges under 30 seconds**. The list is ranked hardest to easiest: rank #1 is the hardest.
+A dark, three-panel Geometry Dash challenge-list layout inspired by the reference screenshot.
 
-## Preview locally
-Open `index.html` in a browser, or use the VS Code Live Server extension.
+## T30L eligibility and order
+- Challenges must be unrated.
+- Challenges must be shorter than 30 seconds.
+- Rank #1 is the hardest; rankings proceed toward easier challenges.
 
-## Add or edit challenges
-Edit `levels.js`. Example structure:
+## Add a challenge
+Edit `levels.js` and add an object to `T30L_CHALLENGES`. Each challenge can include:
+- `id`, `rank`, `name`
+- `creator`, `verifier`
+- `lengthSeconds`, `levelId`
+- `publisher`, `song`
+- `difficultyTags`, `description`
+- `thumbnail`, `videoUrl`
+- `records` (array of `{ player, progress, date }`)
 
-```js
-{
-  id: "unique-url-friendly-id",
-  rank: 1,
-  name: "Challenge name",
-  creator: "Creator name",
-  verifier: "Verifier name",
-  lengthSeconds: 24,
-  levelId: "Geometry Dash level ID",
-  description: "Short description."
-}
-```
+The included entries are placeholders and are not real placements.
 
-`lengthSeconds` must be less than 30. Rank #1 should be the hardest challenge. The current entries are placeholders, not real placements.
+## Add a thumbnail
+1. Open the `assets` folder in your local project.
+2. Put your image in that folder, e.g. `my-challenge.jpg`.
+3. In that challenge's object in `levels.js`, set `thumbnail: "assets/my-challenge.jpg"`.
+4. Upload/commit both the image and updated `levels.js` to the GitHub repository.
 
-## Publish with GitHub Pages
-1. Upload all files in this folder to the root of your `t30l` repository.
-2. Open **Settings → Pages**.
-3. Choose **Deploy from a branch**, branch `main`, folder `/ (root)`, then Save.
-4. Wait for GitHub Pages to publish the site.
+Use a 16:9 image for best results. JPG, PNG, and WebP are suitable. If `thumbnail` is empty, the page shows a designed placeholder.
+
+## Add a preview video
+Set `videoUrl` to a YouTube URL. The profile will show a Watch Video link. (This starter does not embed video playback.)
+
+## Update the live website
+Upload the updated project files to the root of the existing GitHub repository, replacing the previous versions, and commit the changes. GitHub Pages will redeploy automatically.
 
 ## Current limitations
-This is a static starter site. Visitors can search and sort challenges and open individual challenge pages. Player record submission, moderator tools, and a live database are not included yet.
+This is a static GitHub Pages site. Challenge data and records are edited in `levels.js` by repository maintainers. Visitors cannot submit records or upload thumbnails directly yet; public submissions and moderation would need a backend/database and authentication.

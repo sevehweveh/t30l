@@ -1,34 +1,63 @@
-// Replace these example entries with real, checked unrated challenges.
-// Rank 1 is the hardest. lengthSeconds must be less than 30.
-const T30L_LEVELS = [
+/*
+  T30L challenge database.
+
+  Add one object per challenge. Rank #1 is the HARDEST.
+  Only add challenges that meet the T30L rules: unrated and under 30 seconds.
+
+  THUMBNAILS:
+  1. Put the image file in the "assets" folder in your GitHub repository.
+  2. Set thumbnail to its path, for example: "assets/my-challenge.jpg"
+  3. Commit the image and this file to GitHub.
+
+  Optional video: set videoUrl to a YouTube/watch URL.
+*/
+const T30L_CHALLENGES = [
   {
-    id: "sample-challenge-1",
+    id: "sample-challenge",
     rank: 1,
     name: "Example Challenge",
     creator: "Example Creator",
     verifier: "Example Verifier",
     lengthSeconds: 24,
     levelId: "00000000",
-    description: "Example entry for the initial website layout. Replace this with verified challenge information."
+    publisher: "Not provided",
+    song: "Not provided",
+    difficultyTags: ["Wave", "Timings", "Fast-Paced"],
+    description: "This is a placeholder entry to demonstrate the T30L layout. Replace it with a real, eligible challenge.",
+    thumbnail: "",
+    videoUrl: "",
+    records: []
   },
   {
     id: "sample-challenge-2",
     rank: 2,
     name: "Another Example",
     creator: "Another Creator",
-    verifier: "Example Verifier",
+    verifier: "Not provided",
     lengthSeconds: 19,
     levelId: "00000001",
-    description: "A second example entry. Its placement and details are placeholders."
+    publisher: "Not provided",
+    song: "Not provided",
+    difficultyTags: ["Wave", "Memory"],
+    description: "Second placeholder entry. Update the challenge details and placement before publishing the official list.",
+    thumbnail: "",
+    videoUrl: "",
+    records: []
   },
   {
     id: "sample-challenge-3",
     rank: 3,
     name: "Short Example",
     creator: "Sample Creator",
-    verifier: "Example Verifier",
+    verifier: "Not provided",
     lengthSeconds: 28,
     levelId: "00000002",
-    description: "A third example entry to demonstrate searching, sorting, and challenge profiles."
+    publisher: "Not provided",
+    song: "Not provided",
+    difficultyTags: ["Timings"],
+    description: "Third placeholder entry. All sample entries are fictional examples, not official placements.",
+    thumbnail: "",
+    videoUrl: "",
+    records: []
   }
 ];

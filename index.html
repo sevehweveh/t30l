@@ -3,57 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="T30L — a community ranking of unrated Geometry Dash challenges under 30 seconds.">
+  <meta name="theme-color" content="#111014">
+  <meta name="description" content="T30L — the Geometry Dash challenge list for unrated challenges under 30 seconds.">
   <title>T30L — The Under 30 Seconds List</title>
   <link rel="stylesheet" href="styles.css">
   <script src="levels.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html"><span class="brand-mark">T</span><span>T30L</span></a>
-    <nav><a class="active" href="index.html">List</a><a href="#about">About</a></nav>
-    <a class="header-link" href="#list">Explore list <span>↗</span></a>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="T30L home"><span class="brand-icon">T</span><span>T30L</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="selected" href="#list">CHALLENGE LIST</a>
+      <a href="#leaderboard" data-inert>LEADERBOARD</a>
+      <a href="#packs" data-inert>PACKS</a>
+      <a href="#submit" data-inert>SUBMIT A RECORD</a>
+    </nav>
+    <a class="login-link" href="#login" data-inert>LOGIN</a>
+    <button class="mobile-menu" id="mobile-menu" aria-label="Toggle challenge list">☰</button>
   </header>
-  <main>
-    <section class="hero">
-      <div class="eyebrow"><span class="status-dot"></span> COMMUNITY CHALLENGE RANKING</div>
-      <h1>THE UNDER <span>30 SECONDS</span> LIST</h1>
-      <p class="hero-copy">A community-driven difficulty ranking of unrated Geometry Dash challenges that are shorter than 30 seconds.</p>
-      <div class="hero-stats">
-        <div><strong id="level-count">0</strong><span>CHALLENGES</span></div>
-        <div><strong>00:30</strong><span>MAX LENGTH</span></div>
-        <div><strong>HARDEST → EASIEST</strong><span>RANKING ORDER</span></div>
+
+  <main class="dashboard" id="list">
+    <aside class="panel list-panel" id="list-panel">
+      <div class="panel-tabs"><span class="tab active">CHALLENGES</span><span class="tab muted-tab">ALL</span></div>
+      <div class="list-tools">
+        <label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Search challenges..." autocomplete="off"></label>
+        <button class="icon-button" id="sort-button" title="Toggle sorting" aria-label="Toggle sorting">↕</button>
+      </div>
+      <div class="list-subtitle"><span>RANKED CHALLENGES</span><span id="challenge-count">0</span></div>
+      <div class="challenge-list" id="challenge-list"></div>
+    </aside>
+
+    <section class="panel detail-panel" aria-live="polite">
+      <div class="detail-scroll" id="detail-content">
+        <div class="detail-heading">
+          <div><div class="eyebrow">T30L CHALLENGE PROFILE</div><h1 id="challenge-name">Loading...</h1></div>
+          <span class="rank-pill" id="challenge-rank">#1</span>
+        </div>
+        <p class="description" id="challenge-description"></p>
+        <div class="media-frame" id="media-frame">
+          <img id="challenge-thumbnail" alt="Challenge thumbnail">
+          <div class="media-fallback" id="media-fallback"><span class="play-symbol">▶</span><span>CHALLENGE PREVIEW</span><small>Add a thumbnail image in levels.js</small></div>
+          <a class="watch-link" id="video-link" href="#" target="_blank" rel="noopener" hidden>▶ WATCH VIDEO</a>
+        </div>
+        <div class="tags" id="challenge-tags"></div>
+        <div class="stats-grid" id="challenge-stats"></div>
+        <div class="info-section">
+          <div class="section-label">CHALLENGE INFORMATION</div>
+          <div class="info-grid" id="challenge-info"></div>
+        </div>
+        <div class="info-section">
+          <div class="section-label">ABOUT THIS CHALLENGE</div>
+          <p class="body-copy" id="challenge-about"></p>
+        </div>
       </div>
     </section>
-    <section class="list-section" id="list">
-      <div class="section-heading">
-        <div><div class="eyebrow">THE RANKINGS</div><h2>Challenge List</h2></div>
-        <span class="updated">STARTER DATABASE</span>
-      </div>
-      <div class="toolbar">
-        <label class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Search challenges or creators..." autocomplete="off"></label>
-        <select id="sort" aria-label="Sort challenges">
-          <option value="rank">List order (hardest first)</option>
-          <option value="name">Name (A–Z)</option>
-          <option value="length">Shortest first</option>
-        </select>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>RANK</th><th>CHALLENGE</th><th>CREATOR</th><th>LENGTH</th><th>STATUS</th></tr></thead>
-          <tbody id="level-table"></tbody>
-        </table>
-        <div class="empty-state" id="empty-state" hidden>No challenges match your search.</div>
-      </div>
-      <p class="disclaimer">Starter entries are examples, not official placements. Replace them with real, verified challenge information before launch.</p>
-    </section>
-    <section class="about-section" id="about">
-      <div class="eyebrow">ABOUT T30L</div>
-      <h2>Short doesn't mean easy.</h2>
-      <p>T30L is a community project ranking unrated Geometry Dash challenges that are under 30 seconds long. The list is ordered from hardest to easiest. Challenge eligibility, placements, and player records should be reviewed by the list team.</p>
-    </section>
+
+    <aside class="panel records-panel">
+      <div class="records-heading"><h2>Records</h2><span class="record-count" id="record-count">0</span></div>
+      <div class="records-content" id="records-content"></div>
+      <div class="records-note">Records shown here are managed by the T30L list team.</div>
+    </aside>
   </main>
-  <footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">T</span><span>T30L</span></a><span>Independent community project · Not affiliated with RobTop Games</span></footer>
+
+  <footer><span class="footer-brand">T30L</span><span>Independent Geometry Dash community project · Not affiliated with RobTop Games</span></footer>
 </body>
 </html>
