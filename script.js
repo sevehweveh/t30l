@@ -5,6 +5,19 @@ const fallback = document.querySelector("#media-fallback");
 let selectedId = T30L_CHALLENGES[0]?.id;
 let hardestFirst = true;
 
+// Higher points rank higher. Ties are ordered by the earlier placement date.
+function getRankedChallenges() {
+  return [...T30L_CHALLENGES].sort((a, b) =>
+    (Number(b.points) || 0) - (Number(a.points) || 0) ||
+    new Date(a.placedAt || 0) - new Date(b.placedAt || 0) ||
+    String(a.id).localeCompare(String(b.id))
+  );
+}
+
+function getPlacement(challenge) {
+  return getRankedChallenges().findIndex(item => item.id === challenge.id) + 1;
+}
+
 function safeText(value) {
   return String(value ?? "").replace(/[&<>"']/g, char => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -17,12 +30,16 @@ function renderList() {
   const query = searchElement.value.trim().toLowerCase();
   const filtered = T30L_CHALLENGES
     .filter(c => `${c.name} ${c.creator} ${c.verifier}`.toLowerCase().includes(query))
-    .sort((a, b) => hardestFirst ? a.rank - b.rank : b.rank - a.rank);
+    .sort((a, b) => {
+      const rankA = getPlacement(a);
+      const rankB = getPlacement(b);
+      return hardestFirst ? rankA - rankB : rankB - rankA;
+    });
 
   document.querySelector("#challenge-count").textContent = T30L_CHALLENGES.length;
   listElement.innerHTML = filtered.map(c => `
     <button class="challenge-row ${c.id === selectedId ? "active" : ""}" data-id="${safeText(c.id)}">
-      <span class="row-rank">#${c.rank}</span><span class="row-name">${safeText(c.name)}</span>
+      <span class="row-rank">#${getPlacement(c)}</span><span class="row-name">${safeText(c.name)}</span>
     </button>`).join("");
 
   listElement.querySelectorAll(".challenge-row").forEach(button => {
@@ -40,7 +57,7 @@ function renderDetail() {
   if (!c) return;
   document.title = `${c.name} — T30L`;
   document.querySelector("#challenge-name").textContent = c.name;
-  document.querySelector("#challenge-rank").textContent = `#${c.rank}`;
+  document.querySelector("#challenge-rank").textContent = `#${getPlacement(c)}`;
   document.querySelector("#challenge-description").textContent = c.description || "No description has been added yet.";
 
   detailImage.hidden = !c.thumbnail;
