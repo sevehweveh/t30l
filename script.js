@@ -58,7 +58,6 @@ function renderDetail() {
   }
 
   document.querySelector("#challenge-tags").innerHTML =
-    `<span class="tag unrated">UNRATED</span>` +
     (c.difficultyTags || []).map(tag => `<span class="tag">${safeText(tag)}</span>`).join("");
 
   document.querySelector("#challenge-stats").innerHTML = `
@@ -70,7 +69,6 @@ function renderDetail() {
     <div><span>PUBLISHER</span><strong>${safeText(c.publisher || "Not provided")}</strong></div>
     <div><span>VERIFIER</span><strong>${safeText(c.verifier || "Not provided")}</strong></div>
     <div class="wide"><span>CREATOR</span><strong>${safeText(c.creator || "Not provided")}</strong></div>
-    <div><span>SONG</span><strong>${safeText(c.song || "Not provided")}</strong></div>
   `;
   document.querySelector("#challenge-about").textContent = c.description || "No additional information.";
   const records = c.records || [];
